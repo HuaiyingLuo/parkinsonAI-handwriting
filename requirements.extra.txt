@@ -1,0 +1,4 @@
+networkx==3.3
+plotly==4.14.3
+pydot==1.4.1
+torch
