@@ -21,3 +21,13 @@ To update the virtual environment with updated dependencies,run:
 >>> python -m pip install -r requirements.txt
 >>> python -m pip install -r requirements.extra.txt
 ```
+
+## /data
+
+Create a folder named /data under the project root directory. Do not upload your dataset to GitHub. 
+Add /data to your .gitignore file to prevent accidental commits.
+
+## /EDA 
+
+This is the workspace for Exploratory Data Analysis. All scripts are written in Jupyter Notebooks (.ipynb files).
+Use this space to analyze data, visualize patterns, and document findings.
