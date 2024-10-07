@@ -7,19 +7,19 @@ def mkfile(file):
     if not os.path.exists(file):
         os.makedirs(file)
  
+data_type = 'spiral'
+file = f'resnet50/handwritten_dataset/{data_type}'
+classifier_class = [cla for cla in os.listdir(file) if ".txt" not in cla]
+mkfile(f'resnet50/handwritten_dataset/{data_type}/train')
+for cla in classifier_class:
+    mkfile(f'resnet50/handwritten_dataset/{data_type}/train/'+cla)
  
-file = 'flower_dataset/flower_photos'
-flower_class = [cla for cla in os.listdir(file) if ".txt" not in cla]
-mkfile('flower_dataset/train')
-for cla in flower_class:
-    mkfile('flower_dataset/train/'+cla)
- 
-mkfile('flower_dataset/val')
-for cla in flower_class:
-    mkfile('flower_dataset/val/'+cla)
+mkfile(f'resnet50/handwritten_dataset/{data_type}/val')
+for cla in classifier_class:
+    mkfile(f'resnet50/handwritten_dataset/{data_type}/val/'+cla)
  
 split_rate = 0.1
-for cla in flower_class:
+for cla in classifier_class:
     cla_path = file + '/' + cla + '/'
     images = os.listdir(cla_path)
     num = len(images)
@@ -27,11 +27,11 @@ for cla in flower_class:
     for index, image in enumerate(images):
         if image in eval_index:
             image_path = cla_path + image
-            new_path = 'flower_dataset/val/' + cla
+            new_path = f'resnet50/handwritten_dataset/{data_type}/val/' + cla
             copy(image_path, new_path)
         else:
             image_path = cla_path + image
-            new_path = 'flower_dataset/train/' + cla
+            new_path = f'resnet50/handwritten_dataset/{data_type}/train/' + cla
             copy(image_path, new_path)
         print("\r[{}] processing [{}/{}]".format(cla, index+1, num), end="")  # processing bar
     print()
