@@ -7,3 +7,4 @@ sympy == 1.13.2
 networkx == 3.2.1
 torch == 2.4.1
 torchvision == 0.19.1
+matplotlib == 3.9.2
