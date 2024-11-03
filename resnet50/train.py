@@ -7,13 +7,13 @@ import torch.optim as optim
 from model import Resnet50
 import logging
 
-train_date = '1007'
+train_date = '1103'
 train_person = 'yueqi'
 data_type = 'meander'
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-logging.basicConfig(filename=f'resnet50/{data_type}_{train_date}_training_log.log', 
+logging.basicConfig(filename=f'resnet50/train_logs/{data_type}_{train_date}_training_log.log', 
                     level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -113,7 +113,7 @@ if __name__ == '__main__':
 
     learning_rate = 1e-6
     optimizer = optim.Adam(model.parameters(), lr=learning_rate)
-    epochs = 10
+    epochs = 5
 
     train_loader, validate_loader, train_num, val_num = dataset_processing(batch_size)
 

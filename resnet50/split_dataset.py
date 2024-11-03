@@ -9,7 +9,7 @@ def mkfile(file):
  
 data_type = 'spiral'
 file = f'resnet50/handwritten_dataset/{data_type}'
-classifier_class = [cla for cla in os.listdir(file) if ".txt" not in cla]
+classifier_class = [cla for cla in os.listdir(file) if os.path.isdir(os.path.join(file, cla))]
 mkfile(f'resnet50/handwritten_dataset/{data_type}/train')
 for cla in classifier_class:
     mkfile(f'resnet50/handwritten_dataset/{data_type}/train/'+cla)
