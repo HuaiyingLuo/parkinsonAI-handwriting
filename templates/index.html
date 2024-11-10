@@ -3,13 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>ParkinsonAI</title>
+    <!-- Add Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 </head>
 <body>
-    <h1>Upload an Image for PD Early Diagnosis</h1>
-    <form action="/predict" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" id="fileInput" required>
-        <br><br>
-        <button type="submit">Upload</button>
-    </form>
+    <!-- Add a container for better layout -->
+    <section class="section">
+        <div class="container">
+            <!-- Center the heading -->
+            <h1 class="title has-text-centered">Upload an Image for PD Early Diagnosis</h1>
+            <!-- Add a box around the form -->
+            <div class="box">
+                <form action="/predict" method="post" enctype="multipart/form-data">
+                    <!-- Use Bulma's file input style -->
+                    <div class="file has-name is-fullwidth">
+                        <label class="file-label">
+                            <input class="file-input" type="file" name="file" id="fileInput" required>
+                            <span class="file-cta">
+                                <span class="file-icon">
+                                    <i class="fas fa-upload"></i>
+                                </span>
+                                <span class="file-label">
+                                    Choose a file…
+                                </span>
+                            </span>
+                            <span class="file-name" id="fileName">
+                                No file selected
+                            </span>
+                        </label>
+                    </div>
+                    <br>
+                    <!-- Center the button and make it primary -->
+                    <div class="has-text-centered">
+                        <button class="button is-primary" type="submit">Upload</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Add Font Awesome for icons -->
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+    <script>
+        // JavaScript to update file name display
+        document.querySelector('#fileInput').addEventListener('change', function() {
+            const fileName = document.querySelector('#fileName');
+            fileName.textContent = this.files[0] ? this.files[0].name : 'No file selected';
+        });
+    </script>
 </body>
 </html>
