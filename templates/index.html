@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ParkinsonAI</title>
+    <title>HandSight</title>
     <!-- Add Bulma CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 </head>
@@ -10,10 +10,43 @@
     <!-- Add a container for better layout -->
     <section class="section">
         <div class="container">
-            <!-- Center the heading -->
-            <h1 class="title has-text-centered">Upload an Image for PD Early Diagnosis</h1>
-            <!-- Add a box around the form -->
+            <h1 class="title has-text-centered">Welcome to HandSight</h1> 
+            <p class="has-text-centered">
+                <strong>HandSight</strong> is designed to assist in the early diagnosis of Parkinson's Disease (PD) by analyzing hand-drawn images using AI.
+            </p>
+            <p class="has-text-centered">
+                Upload an image of a hand-drawn spiral or meandering drawing, and our AI model will predict whether the drawing indicates a positive or negative result for Parkinson's Disease.
+            </p>
+            <div class="section">
+                <h2 class="subtitle has-text-centered">Instructions</h2>
+                <p class="has-text-centered">
+                    Draw a spiral or a meander from the inside out. Examples are as follows:
+                </p>
+                <div class="columns is-centered">
+                    <div class="column is-half">
+                        <table class="table is-fullwidth">
+                            <tbody>
+                                <tr>
+                                    <td class="has-text-centered">
+                                        <figure class="image is-128x128 is-inline-block">
+                                            <img src="{{ url_for('static', filename='spiral_example.png') }}" alt="Spiral Example">
+                                        </figure>
+                                        <p>Spiral Example</p>
+                                    </td>
+                                    <td class="has-text-centered is-inline-block">
+                                        <figure class="image is-128x128">
+                                            <img src="{{ url_for('static', filename='meander_example.png') }}" alt="Meander Example">
+                                        </figure>
+                                        <p>Meander Example</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
             <div class="box">
+                <h2 class="subtitle has-text-centered">Upload an Image for PD Early Diagnosis</h2>
                 <form action="/predict" method="post" enctype="multipart/form-data">
                     <!-- Use Bulma's file input style -->
                     <div class="file has-name is-fullwidth">
@@ -43,12 +76,6 @@
     </section>
     <!-- Add Font Awesome for icons -->
     <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
-    <script>
-        // JavaScript to update file name display
-        document.querySelector('#fileInput').addEventListener('change', function() {
-            const fileName = document.querySelector('#fileName');
-            fileName.textContent = this.files[0] ? this.files[0].name : 'No file selected';
-        });
-    </script>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
 </body>
 </html>

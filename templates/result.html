@@ -10,7 +10,18 @@
         <div class="container has-text-centered">
             <h1 class="title">Classification Result</h1>
             <div class="box">
-                <p class="subtitle">Predicted Class: {{ prediction }}</p>
+                {% if prediction == 0 %}
+                <p class="subtitle has-text-weight-bold has-text-success">Parkinson's Disease: Negative</p>
+                {% else %}
+                <p class="subtitle has-text-weight-bold has-text-danger">Parkinson's Disease: Positive</p>
+                {% endif %}
+                <p class="has-text-centered">
+                    Please note that this result is only an assistive tool for early diagnosis. 
+                </p>
+                <p class="has-text-centered">
+                    It is important to consult a <strong>neurologist</strong> for a comprehensive and accurate diagnosis.
+                </p>
+                <br>
                 <a class="button is-primary" href="{{ url_for('index') }}">Choose Another Image</a>
             </div>
         </div>
