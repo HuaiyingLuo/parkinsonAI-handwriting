@@ -1,5 +1,6 @@
 resnet/*
 resnet50/handwritten_dataset/*
+resnet50/models/*
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
