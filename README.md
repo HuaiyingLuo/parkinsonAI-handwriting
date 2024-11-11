@@ -23,7 +23,7 @@ To update the virtual environment with updated dependencies,run:
 ```
 
 ## /data
-
+dataset source: https://wwwp.fc.unesp.br/~papa/pub/datasets/Handpd/
 Create a folder named /data under the project root directory. Do not upload your dataset to GitHub. 
 Add /data to your .gitignore file to prevent accidental commits.
 

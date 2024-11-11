@@ -7,7 +7,7 @@ def mkfile(file):
     if not os.path.exists(file):
         os.makedirs(file)
  
-data_type = 'spiral'
+data_type = 'meander'
 file = f'resnet50/handwritten_dataset/{data_type}'
 classifier_class = [cla for cla in os.listdir(file) if os.path.isdir(os.path.join(file, cla))]
 mkfile(f'resnet50/handwritten_dataset/{data_type}/train')
@@ -18,7 +18,7 @@ mkfile(f'resnet50/handwritten_dataset/{data_type}/val')
 for cla in classifier_class:
     mkfile(f'resnet50/handwritten_dataset/{data_type}/val/'+cla)
  
-split_rate = 0.1
+split_rate = 0.25
 for cla in classifier_class:
     cla_path = file + '/' + cla + '/'
     images = os.listdir(cla_path)
