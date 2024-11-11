@@ -2,7 +2,7 @@ import os
 import matplotlib.pyplot as plt
 from collections import defaultdict
 
-data_type = 'meander'
+data_type = 'spiral'
 data_dir = f'resnet50/handwritten_dataset/{data_type}'
 
 
