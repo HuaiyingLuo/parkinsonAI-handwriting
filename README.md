@@ -1,5 +1,11 @@
 # parkinsonAI-handwriting
 
+## Flask Web Application
+Run the command:
+```
+python app.py
+```
+
 ## Setups
 The virtual environment lets you install packages that are only used for your assignments and do not impact the rest of the system. If you choose venv, run the following command:
 
