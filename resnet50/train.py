@@ -7,7 +7,7 @@ import torch.optim as optim
 from model import Resnet50
 import logging
 
-train_date = '1103'
+train_date = '1104'
 train_person = 'yueqi'
 data_type = 'meander'
 
