@@ -1,10 +1,10 @@
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, render_template, redirect, url_for, jsonify
 from werkzeug.utils import secure_filename
 import os
 from PIL import Image
 import torch
 from torchvision import transforms
-from resnet50.model import Resnet50
+from resnet50.model_bagging import FusionModel
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'  # directory for storing uploaded files
@@ -13,8 +13,8 @@ os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 def load_model():
-    model = Resnet50(num_classes=2).to(device)
-    model.load_state_dict(torch.load('resnet50/models/resnet50_spiral_1103.pth', map_location=device, weights_only=True))
+    model = FusionModel(num_classes=2).to(device)
+    model.load_state_dict(torch.load('resnet50/models/resnet50_fusion_1111.pth', map_location=device, weights_only=True))
     model.to(device)
     model.eval()
     return model
@@ -37,22 +37,25 @@ def index():
 @app.route('/predict', methods=['POST'])
 def upload_file():
     if request.method == 'POST':
-        # 检查是否有文件被上传
-        if 'file' not in request.files:
-            return redirect(request.url)
+        if 'file1' not in request.files or 'file2' not in request.files:
+            return jsonify({"error": "Both files are required"}), 400
         
-        file = request.files['file']
-        if file.filename == '':
-            return redirect(request.url)
+        file1 = request.files['file1']
+        file2 = request.files['file2']
         
-        if file:
-            filename = secure_filename(file.filename)
-            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            file.save(filepath)
-            
-            image = preprocess_image(filepath)
+        if file1 and file2:
+            filename1 = secure_filename(file1.filename)
+            filepath1 = os.path.join(app.config['UPLOAD_FOLDER'], filename1)
+            file1.save(filepath1)
+
+            filename2 = secure_filename(file2.filename)
+            filepath2 = os.path.join(app.config['UPLOAD_FOLDER'], filename2)
+            file2.save(filepath2)
+
+            meander = preprocess_image(filepath1)
+            spiral = preprocess_image(filepath2)
             with torch.no_grad():
-                outputs = model(image)  
+                outputs = model(meander, spiral)  
                 predicted = torch.max(outputs, dim=1)[1]
             prediction = predicted.item()
             

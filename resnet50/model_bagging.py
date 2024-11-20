@@ -46,7 +46,7 @@ class Resnet50(nn.Module):
             self._make_stage(1024, 2048, down_sample=True, num_blocks=3)
         ])
         self.avgpool = nn.AvgPool2d(kernel_size=7, stride=1, padding=0)
-        self.flattern = nn.Flatten(start_dim=1, end_dim=-1)
+        self.flatten = nn.Flatten(start_dim=1, end_dim=-1)
         self.linear = nn.Linear(2048, num_classes)
 
 
