@@ -1,7 +1,8 @@
 # parkinsonAI-handwriting
 
 ## Flask Web Application
-Run the command:
+### Run locally
+Please check 'resnet50/models/resnet50_fusion_1111.pth' is fully downloaded. Then run the command:
 ```
 python app.py
 ```
