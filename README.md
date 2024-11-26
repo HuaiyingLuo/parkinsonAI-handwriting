@@ -36,5 +36,7 @@ Run your Streamlit app.
 ```
 streamlit run HandSight.py
 ```
+Try out the app at:
+https://handsight.streamlit.app/
 
 
