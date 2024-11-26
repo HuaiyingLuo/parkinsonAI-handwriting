@@ -32,6 +32,11 @@ python app.py
 
 ## Streamlit Web Application
 ### Run locally
+
+```
+pip install streamlit
+```
+
 Run your Streamlit app.
 ```
 streamlit run HandSight.py
