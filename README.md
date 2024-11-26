@@ -1,12 +1,5 @@
 # parkinsonAI-handwriting
 
-## Flask Web Application
-### Run locally
-Please check 'resnet50/models/resnet50_fusion_1111.pth' is fully downloaded. Then run the command:
-```
-python app.py
-```
-
 ## Setups
 The virtual environment lets you install packages that are only used for your assignments and do not impact the rest of the system. If you choose venv, run the following command:
 
@@ -19,22 +12,19 @@ There are several packages used in this project, and you can install them in you
 
 ```
 >>> python -m pip install -r requirements.txt
->>> python -m pip install -r requirements.extra.txt
->>> python -m pip install -Ue .
 ```
 
-To update the virtual environment with updated dependencies,run:
+## Flask Web Application
+### Run locally
+Please check 'resnet50/models/resnet50_fusion_1111.pth' is fully downloaded. This file is managed by Git LFS (Large File Storage). To download this file, you need to have Git LFS installed and properly set up in your environment. 
+
+Once you have LFS installed in your system, navigate to the repository directory and run the following command to fetch the actual content of the LFS files:
+
 ```
->>> python -m pip install -r requirements.txt
->>> python -m pip install -r requirements.extra.txt
+git lfs pull
 ```
 
-## /data
-dataset source: https://wwwp.fc.unesp.br/~papa/pub/datasets/Handpd/
-Create a folder named /data under the project root directory. Do not upload your dataset to GitHub. 
-Add /data to your .gitignore file to prevent accidental commits.
-
-## /EDA 
-
-This is the workspace for Exploratory Data Analysis. All scripts are written in Jupyter Notebooks (.ipynb files).
-Use this space to analyze data, visualize patterns, and document findings.
+Then run the command:
+```
+python app.py
+```
