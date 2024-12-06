@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="handPD">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/data/handPD/Meander_HandPD.zip!/" />
+      <root url="jar://$PROJECT_DIR$/data/handPD/Spiral_HandPD.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

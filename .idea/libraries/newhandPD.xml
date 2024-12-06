@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="newhandPD">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/data/newhandPD/HealthySignal.zip!/" />
+      <root url="jar://$PROJECT_DIR$/data/newhandPD/PatientCircle.zip!/" />
+      <root url="jar://$PROJECT_DIR$/data/newhandPD/HealthySpiral.zip!/" />
+      <root url="jar://$PROJECT_DIR$/data/newhandPD/PatientMeander.zip!/" />
+      <root url="jar://$PROJECT_DIR$/data/newhandPD/PatientSignal.zip!/" />
+      <root url="jar://$PROJECT_DIR$/data/newhandPD/HealthyCircle.zip!/" />
+      <root url="jar://$PROJECT_DIR$/data/newhandPD/HealthyMeander.zip!/" />
+      <root url="jar://$PROJECT_DIR$/data/newhandPD/PatientSpiral.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
