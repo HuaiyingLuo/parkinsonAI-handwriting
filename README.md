@@ -77,4 +77,16 @@ streamlit run HandSight.py
 Try out the app at:
 https://handsight.streamlit.app/
 
+## Using docker to containerize the flask service 
+
+Create a Dockerfile in the root directory of the project to build the docker image:
+
+```
+docker build -t handsight-app .
+```
+
+Run the docker container:
+```
+docker run -p 80:80 handsight-app
+```
 
