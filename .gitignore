@@ -139,3 +139,6 @@ pyodide
 
 # Raw data
 /data
+
+# Environment variables
+.env

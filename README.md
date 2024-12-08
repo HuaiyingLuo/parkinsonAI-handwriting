@@ -90,3 +90,14 @@ Run the docker container:
 docker run -p 80:80 handsight-app
 ```
 
+Check the local docker images:
+```
+docker images
+```
+
+
+
+
+
+
+
